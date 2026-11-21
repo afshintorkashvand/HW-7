@@ -1,0 +1,28 @@
+
+
+Assignment: Modular File Reporting Workflow 
+Build a modular JavaScript workflow using, Promises, async/await, closures, and error 
+handling. 
+Requirements 
+1. Create three simulated services using Promise and setTimeout: 
+o loadFile(id): resolves after 30ms with { id, pages: 4 }. 
+o loadPolicy(): resolves after 10ms with { maxPages: 5 }. 
+o saveSummary(summary): resolves after 20ms with { saved: true, summary }. 
+2. Each service must accept an optional { fail: false } argument. If fail is true, it must 
+reject with an Error. 
+3. Run loadFile and loadPolicy concurrently using Promise.all. Save the summary only 
+if both succeed and pages <= maxPages. 
+4. Create a summary containing: 
+o fileId 
+o pages 
+o label: "ready" 
+5. If pages exceed the limit, return an error with the message "تعداد صفحه بیش از سقف" and 
+do not save anything. 
+6. The main async workflow must return: 
+o Success: { status: "success", result: ... } 
+o Failure: { status: "error", message: ... } 
+7. Use a closure-based counter to assign an increasing execution ID to every workflow 
+run. Independent counter factories must start from 1. 
+8. Separate services, business rules, workflow coordination, and application 
+execution into different modules. Avoid circular imports. 
+9. The HTML file must load only app.js using type="module".
